@@ -10,16 +10,20 @@ public class ApiDataContext : DbContext
     }
 
     public DbSet<TipoCaracteristica>? TipoCaracteristicas { get; set; }
+    public DbSet<Modelo>? Modelos { get; set; }
 
-    protected override void OnModelCreating(ModelBuilder modelBuilder)
-    {
-        base.OnModelCreating(modelBuilder);
+    //protected override void OnModelCreating(ModelBuilder modelBuilder)
+    //{
+    //    base.OnModelCreating(modelBuilder);
 
+        //modelBuilder.Entity<TipoCaracteristica>()
+        //   .HasOne(p => p.Modelo)
+        //   .WithMany(b => b.TipoCaracteristicas)
 
         #region Seed Demo Data
-        modelBuilder.Entity<TipoCaracteristica>().HasData(
-            new TipoCaracteristica { Id = 1, Equipo = "Mouse Inhalambrico", Abreviatura = "msinha" }
-             );
+        //modelBuilder.Entity<TipoCaracteristica>().HasData(
+        //    new TipoCaracteristica { Id = 1, Equipo = "Mouse Inhalambrico", Abreviatura = "msinha" }
+        //     );
         #endregion
-    }
+    //}
 }

@@ -27,8 +27,8 @@ public class EliminarTipoCFunction
         try
         {
             //var command = await req.ReadFromJsonAsync<EliminarTipoCaracteristicaComando>();
-
-            var data = await _TipoCServiceCQRS.HandleComando(new EliminarTipoCaracteristicaComando(id));
+            var queries = new EliminarTipoCaracteristicaComando(id);
+            var data = await _TipoCServiceCQRS.HandleComando(queries);
             var response = req.CreateResponse(System.Net.HttpStatusCode.OK);
             await response.WriteAsJsonAsync(data);
             return response;

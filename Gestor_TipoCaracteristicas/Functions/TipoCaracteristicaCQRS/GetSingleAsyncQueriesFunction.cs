@@ -26,8 +26,8 @@ public class GetSingleAsyncQueriesFunction
     {
         try
         {
-            //var queries = await req.ReadFromJsonAsync<GetSingleAsyncQueries>();
-            var data = await _TipoCServiceCQRS.HandleConsulta(new GetSingleAsyncQueries(value));
+            var queries = new GetSingleAsyncQueries(value);
+            var data = await _TipoCServiceCQRS.HandleConsulta(queries);
 
             if (data == null)
             {

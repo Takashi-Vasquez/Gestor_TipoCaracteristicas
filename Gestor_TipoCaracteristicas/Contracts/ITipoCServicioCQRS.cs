@@ -6,7 +6,7 @@ namespace Gestor_TipoCaracteristicas.Contracts
 {
     public interface ITipoCServicioCQRS
     {
-        Task<TipoCaracteristica> HandleComando(CreateTipoCaracteristicaComando comando);
+        Task<TipoCaracteristica> HandleComando(CreateTipoCComando comando);
         Task<bool> HandleComando(EliminarTipoCaracteristicaComando comando);
         Task<TipoCaracteristica> HandleComando(ModificarTipoCaracteristicaComando comando);
        

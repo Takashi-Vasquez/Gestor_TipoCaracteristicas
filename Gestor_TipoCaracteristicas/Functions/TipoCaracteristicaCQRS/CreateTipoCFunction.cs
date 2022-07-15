@@ -27,8 +27,8 @@ public class CreateTipoCFunction
     {
         try
         {
-            var command = await req.ReadFromJsonAsync<CreateTipoCaracteristicaComando>();
-            var data = await _TipoCServiceCQRS.HandleComando(command);
+            var command = await req.ReadFromJsonAsync<CreateTipoCComando>();
+            var data = await _TipoCServiceCQRS.HandleComando(command!);
             var response = req.CreateResponse(System.Net.HttpStatusCode.OK);
             await response.WriteAsJsonAsync(data);
             return response;

@@ -57,9 +57,11 @@ var host = new HostBuilder()
 
         // DI for customized services and repositories
         services.AddScoped<ITipoRepository, TipoCRepository>();
+        services.AddScoped<IModeloRepository, ModeloTipoCRepository>();
         //services.AddTransient<ITipoRepository, TipoCRepository>();  
         //services.AddScoped<ITipoService, TipoCServices>();
         services.AddScoped<ITipoCServicioCQRS, TipoCServiceCQRS>();
+        services.AddScoped<IModeloServiceCQRS, ModeloTipoCServicesCQRS>();
         //services.AddTransient<ITipoService, TipoCServices>();
 
     })
