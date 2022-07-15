@@ -43,11 +43,9 @@ namespace Gestor_TipoCaracteristicas.Repositories
 
         }
 
-        public async Task<IEnumerable<TipoCaracteristica>> GetaAllAsync()
+        public async Task<IEnumerable<TipoCaracteristica>> GetAllAsync()
         {
             return await _context.TipoCaracteristicas.ToListAsync();
         }
-
-
     }
 }

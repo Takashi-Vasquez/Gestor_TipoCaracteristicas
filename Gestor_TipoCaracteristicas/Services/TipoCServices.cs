@@ -41,11 +41,10 @@ namespace Gestor_TipoCaracteristicas.Services
         {
             return await _tipoRepository.GetSingleAsync(value);
         }
-        public async Task<IEnumerable<TipoCaracteristica>> GetaAllAsync()
-        {
-            return await _tipoRepository.GetaAllAsync();
-        }
 
-       
+        public async Task<IEnumerable<TipoCaracteristica>> GetAllAsync()
+        {
+            return await _tipoRepository.GetAllAsync(); ;
+        }
     }
 }

@@ -108,7 +108,7 @@ public class TipoCFunction
     {
         try
         {
-            var data = await _TipoCService.GetaAllAsync();
+            var data = await _TipoCService.GetAllAsync();
 
             if (data == null)
             {

@@ -1,0 +1,2 @@
+﻿namespace Gestor_TipoCaracteristicas.Comandos.TipoCaracteristicas;
+public record CreateTipoCaracteristicaComando(string Equipo, string Abreviatura);

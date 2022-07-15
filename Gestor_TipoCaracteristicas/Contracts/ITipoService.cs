@@ -9,7 +9,7 @@ namespace Gestor_TipoCaracteristicas.Contracts
         Task<TipoCaracteristica> EditAsync(TipoCaracteristica tipo);
         Task<bool> RemoveAsync(int id);
         Task<TipoCaracteristica> GetSingleAsync(string value);
-        Task<IEnumerable<TipoCaracteristica>> GetaAllAsync();
+        Task<IEnumerable<TipoCaracteristica>> GetAllAsync();
 
     }
 }
