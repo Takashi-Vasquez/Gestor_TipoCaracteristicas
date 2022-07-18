@@ -6,6 +6,6 @@ namespace Gestor_TipoCaracteristicas.Contracts
 {
     public interface IModeloServiceCQRS
     {
-        Task<Modelo> HandleComando(CreateModeloTipoCComando comando);
+        //Task<Modelo> HandleComando(CreateModeloTipoCComando comando);
     }
 }

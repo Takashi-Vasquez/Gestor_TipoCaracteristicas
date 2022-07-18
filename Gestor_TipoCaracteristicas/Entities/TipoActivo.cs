@@ -6,6 +6,7 @@ using System.Text.Json.Serialization;
 
 namespace Gestor_TipoCaracteristicas.Entities
 {
+    [Table("TipoActivo")]
     public class TipoActivo
     {
         [Key]
@@ -24,6 +25,11 @@ namespace Gestor_TipoCaracteristicas.Entities
         [StringLength(20, MinimumLength = 3, ErrorMessage = "Abbrevation can't be longer than 20 characters")]
         [JsonPropertyName("abbrevation")]
         public string? Abbrevation { get; set; }
+
+        [ForeignKey(nameof(ClaseActivo))]
+        [JsonPropertyName("claseActivoId")]
+        public int ClaseActivoId { get; set; }
+        public ClaseActivo? ClaseActivo { get; set; }
 
         [Column("Status", TypeName = "tinyint")]
         [Required(ErrorMessage = "Status is required")]

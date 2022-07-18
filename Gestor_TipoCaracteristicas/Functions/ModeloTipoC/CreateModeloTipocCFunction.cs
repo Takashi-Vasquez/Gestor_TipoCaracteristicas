@@ -20,7 +20,7 @@ namespace Gestor_TipoCaracteristicas.Functions.ModeloTipoC
             _ModeloServiceCQRS = ModeloServiceCQRS;
 
         }
-
+        /*
         [Function("AddModeloCQRS")]
         public async Task<HttpResponseData> Add(
         [HttpTrigger(AuthorizationLevel.Function, "post", Route = Route)] HttpRequestData req)
@@ -39,5 +39,6 @@ namespace Gestor_TipoCaracteristicas.Functions.ModeloTipoC
                 return req.CreateResponse(System.Net.HttpStatusCode.BadRequest);
             }
         }
+        */
     }
 }

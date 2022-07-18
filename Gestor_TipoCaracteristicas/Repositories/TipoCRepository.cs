@@ -19,7 +19,8 @@ namespace Gestor_TipoCaracteristicas.Repositories
             _context.TipoCaracteristicas.Add(tipo);
             await _context.SaveChangesAsync();
 
-            return await _context.TipoCaracteristicas.Include(x => x.Modelo).FirstOrDefaultAsync(x => x.Id == tipo.Id); ;
+            return await _context.TipoCaracteristicas//.Include(x => x.Modelo)
+                .FirstOrDefaultAsync(x => x.Id == tipo.Id); ;
         }
 
         public async Task<TipoCaracteristica> EditAsync(TipoCaracteristica tipo)
@@ -38,15 +39,18 @@ namespace Gestor_TipoCaracteristicas.Repositories
         {
             bool isNumeric = int.TryParse(value, out int tipoId);
             if (isNumeric)
-                return await _context.TipoCaracteristicas.Include(x => x.Modelo).FirstOrDefaultAsync(x=>x.Id==tipoId);
+                return await _context.TipoCaracteristicas//.Include(x => x.Modelo)
+                                                         .FirstOrDefaultAsync(x=>x.Id==tipoId);
             else
-                return await _context.TipoCaracteristicas.Where(u => u.Equipo.Contains(value)).FirstOrDefaultAsync();
+                return await _context.TipoCaracteristicas//.Where(u => u.Equipo.Contains(value))
+                    .FirstOrDefaultAsync();
 
         }
 
         public async Task<IEnumerable<TipoCaracteristica>> GetAllAsync()
         {
-            return await _context.TipoCaracteristicas.Include(x => x.Modelo).ToListAsync();
+            return await _context.TipoCaracteristicas//.Include(x => x.Modelo)
+                .ToListAsync();
         }
     }
 }

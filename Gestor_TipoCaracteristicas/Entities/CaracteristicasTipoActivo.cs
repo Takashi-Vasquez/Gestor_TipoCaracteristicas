@@ -13,15 +13,15 @@ namespace Gestor_TipoCaracteristicas.Entities
         [JsonPropertyName("caracteristicasTipoActivoId")]
         public int Id { get; set; }
 
-        [ForeignKey(nameof(TipoActivo))]
-        [JsonPropertyName("tipoActivoId")]
-        public int TipoActivoId { get; set; }
-        public TipoActivo? TipoActivo { get; set; }
-
         [ForeignKey(nameof(TipoCaracteristica))]
         [JsonPropertyName("tipoCaracteristicaId")]
         public int TipoCaracteristicaId { get; set; }
         public TipoCaracteristica? TipoCaracteristica { get; set; }
+
+        [ForeignKey(nameof(TipoActivo))]
+        [JsonPropertyName("tipoActivoId")]
+        public int TipoActivoId { get; set; }
+        public TipoActivo? TipoActivo { get; set; }
 
         [Column("Status", TypeName = "tinyint")]
         [Required(ErrorMessage = "Status is required")]

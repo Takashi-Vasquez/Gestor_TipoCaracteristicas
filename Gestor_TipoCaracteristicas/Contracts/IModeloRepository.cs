@@ -4,7 +4,7 @@ namespace Gestor_TipoCaracteristicas.Contracts;
 
 public interface IModeloRepository
 {
-    Task<Modelo> createModeloAsyc(Modelo tipo);
+    //Task<Modelo> createModeloAsyc(Modelo tipo);
   
 
 }

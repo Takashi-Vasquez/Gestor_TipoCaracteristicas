@@ -17,10 +17,10 @@ namespace Gestor_TipoCaracteristicas.Entities
         public int CaracteristicasTipoActivoId { get; set; }
         public CaracteristicasTipoActivo? CaracteristicasTipoActivo { get; set; } 
         
-        [ForeignKey(nameof(TipoActivo))]
-        [JsonPropertyName("tipoActivoId")]
-        public int TipoActivoId { get; set; }
-        public TipoActivo? TipoActivo { get; set; }
+        [ForeignKey(nameof(Activo))]
+        [JsonPropertyName("ActivoId")]
+        public int ActivoId { get; set; }
+        public Activo? Activo { get; set; }
 
         [Column("Name", TypeName = "varchar(50)")]
         [Required(ErrorMessage = "Name is required")]

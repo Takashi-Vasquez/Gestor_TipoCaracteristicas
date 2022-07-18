@@ -41,7 +41,7 @@ namespace Gestor_TipoCaracteristicas.Entities
         [JsonPropertyName("marcaId")]
         public int MarcaId { get; set; }
 
-        [Column("Cost", TypeName = "decimal(10.2)")]
+        [Column("Cost", TypeName = "decimal(10,2)")]
         //[Required(ErrorMessage = "Name is required")]
         [JsonPropertyName("cost")]
         public decimal? Cost { get; set; }

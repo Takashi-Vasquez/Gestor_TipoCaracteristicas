@@ -16,8 +16,8 @@ namespace Gestor_TipoCaracteristicas.Services
         {
             var tipoC = new TipoCaracteristica
             {
-                Equipo = tipo.Equipo,
-                Abreviatura = tipo.Abreviatura
+                //Equipo = tipo.Equipo,
+                //Abreviatura = tipo.Abreviatura
             };
             return await _tipoRepository.createAsyc(tipoC);
         }
@@ -25,8 +25,8 @@ namespace Gestor_TipoCaracteristicas.Services
         public async Task<TipoCaracteristica> EditAsync(TipoCaracteristica tipo)
         {
             var tipoCUpdate = await _tipoRepository.GetSingleAsync(tipo.Id.ToString());
-            tipoCUpdate.Abreviatura = tipo.Abreviatura;
-            tipoCUpdate.Equipo = tipo.Equipo;
+            //tipoCUpdate.Abreviatura = tipo.Abreviatura;
+            //tipoCUpdate.Equipo = tipo.Equipo;
             return await _tipoRepository.EditAsync(tipoCUpdate);
         }
 

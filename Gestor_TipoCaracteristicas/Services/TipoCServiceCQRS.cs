@@ -17,18 +17,18 @@ internal class TipoCServiceCQRS : ITipoCServicioCQRS
     {
          var tipoC = new TipoCaracteristica
             {
-                Equipo = comando.Equipo,
-                Abreviatura = comando.Abreviatura,
-                ModeloId = comando.ModeloId,
+                //Equipo = comando.Equipo,
+                //Abreviatura = comando.Abreviatura,
+                //ModeloId = comando.ModeloId,
             };
             return await _tipoRepository.createAsyc(tipoC);
     }
     public async Task<TipoCaracteristica> HandleComando(ModificarTipoCaracteristicaComando comando)
     {
         var tipoCUpdate = await _tipoRepository.GetSingleAsync(comando.Id.ToString());
-        tipoCUpdate.Abreviatura = comando.Abreviatura;
-        tipoCUpdate.Equipo = comando.Equipo;
-        tipoCUpdate.ModeloId = comando.ModeloId;
+        //tipoCUpdate.Abreviatura = comando.Abreviatura;
+        //tipoCUpdate.Equipo = comando.Equipo;
+        //tipoCUpdate.ModeloId = comando.ModeloId;
 
         return await _tipoRepository.EditAsync(tipoCUpdate);
     }

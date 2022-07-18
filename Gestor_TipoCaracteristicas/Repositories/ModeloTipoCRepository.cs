@@ -12,12 +12,13 @@ namespace Gestor_TipoCaracteristicas.Repositories
         public ModeloTipoCRepository(ApiDataContext context)
         {
             _context = context;
-        }
+        }/*
         public async Task<Modelo> createModeloAsyc(Modelo tipo)
         {
             _context.Modelos.Add(tipo);
             await _context.SaveChangesAsync();
             return tipo;
         }
+        */
     }
 }

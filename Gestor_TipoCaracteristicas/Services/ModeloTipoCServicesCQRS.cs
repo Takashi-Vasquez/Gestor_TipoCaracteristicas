@@ -11,7 +11,7 @@ namespace Gestor_TipoCaracteristicas.Services
         {
             _tipoRepository = tipoRepository;
         }
-
+        /*
         public async Task<Modelo> HandleComando(CreateModeloTipoCComando comando)
         {
             var tipoM = new Modelo
@@ -20,5 +20,7 @@ namespace Gestor_TipoCaracteristicas.Services
             };
             return await _tipoRepository.createModeloAsyc(tipoM);
         }
+
+        */
     }
 }
