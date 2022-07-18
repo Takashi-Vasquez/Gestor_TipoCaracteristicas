@@ -8,9 +8,16 @@ public class ApiDataContext : DbContext
     public ApiDataContext(DbContextOptions<ApiDataContext> options) : base(options)
     {
     }
-
+    public DbSet<User>? Users { get; set; }
+    public DbSet<Bank>? Banks { get; set; }
+    public DbSet<Currency>? Currencies { get; set; }
+    public DbSet<Provider>? Providers { get; set; }
     public DbSet<TipoCaracteristica>? TipoCaracteristicas { get; set; }
-    public DbSet<Modelo>? Modelos { get; set; }
+    public DbSet<Marca>? Marca { get; set; }
+    public DbSet<TipoActivo>? TipoActivo { get; set; }
+    public DbSet<CaracteristicasActivo>? CaracteristicasActivo { get; set; }
+    public DbSet<CaracteristicasTipoActivo>? CaracteristicasTipoActivo { get; set; }
+    public DbSet<ClaseActivo>? ClaseActivo { get; set; }
 
     //protected override void OnModelCreating(ModelBuilder modelBuilder)
     //{

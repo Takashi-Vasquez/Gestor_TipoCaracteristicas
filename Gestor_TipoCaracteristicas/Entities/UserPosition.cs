@@ -1,27 +1,28 @@
-﻿
-using System.ComponentModel.DataAnnotations;
+﻿using System.ComponentModel.DataAnnotations;
 using System.ComponentModel.DataAnnotations.Schema;
 using System.Text.Json.Serialization;
 
+
 namespace Gestor_TipoCaracteristicas.Entities;
 
-[Table("TipoCaracteristica")]
-public class TipoCaracteristica
+[Table("UserPosition")]
+public class UserPosition
 {
     [Key]
-    [Column("Id")]
+    [Column("UserPositionId")]
+    [JsonPropertyName("userPositionId")]
     public int Id { get; set; }
 
-    [Required]
-    [Column("Equipment", TypeName = "varchar(50)")]
-    [JsonPropertyName("equipment")]
-    public string? Equipment { get; set; }
+    [ForeignKey(nameof(Tenant))]
+    [JsonPropertyName("tenantId")]
+    public int TenantId { get; set; }
+    public Tenant? Tenant { get; set; }
 
-    [Column("Abbrevation", TypeName = "varchar(20)")]
-    [Required(ErrorMessage = "Abbrevation is required")]
-    [StringLength(20, MinimumLength = 3, ErrorMessage = "Abbrevation can't be longer than 20 characters")]
-    [JsonPropertyName("abbrevation")]
-    public string? Abbrevation { get; set; }
+    [Column("Name", TypeName = "varchar(100)")]
+    [Required(ErrorMessage = "Name is required")]
+    [StringLength(100, ErrorMessage = "Name can't be longer than 100 characters")]
+    [JsonPropertyName("name")]
+    public string Name { get; set; } = string.Empty;
 
     [Column("Status", TypeName = "tinyint")]
     [Required(ErrorMessage = "Status is required")]

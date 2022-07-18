@@ -1,27 +1,33 @@
-﻿
-using System.ComponentModel.DataAnnotations;
+﻿using System.ComponentModel.DataAnnotations;
 using System.ComponentModel.DataAnnotations.Schema;
 using System.Text.Json.Serialization;
 
+
 namespace Gestor_TipoCaracteristicas.Entities;
 
-[Table("TipoCaracteristica")]
-public class TipoCaracteristica
+[Table("Company")]
+public class Company
 {
     [Key]
-    [Column("Id")]
+    [Column("CompanyId")]
+    [JsonPropertyName("companyId")]
     public int Id { get; set; }
 
-    [Required]
-    [Column("Equipment", TypeName = "varchar(50)")]
-    [JsonPropertyName("equipment")]
-    public string? Equipment { get; set; }
+    [Column("Name", TypeName = "varchar(100)")]
+    [StringLength(100, ErrorMessage = "Name can't be longer than 100 characters")]
+    [Required(ErrorMessage = "Name is required")]
+    [JsonPropertyName("name")]
+    public string Name { get; set; } = string.Empty;
 
-    [Column("Abbrevation", TypeName = "varchar(20)")]
-    [Required(ErrorMessage = "Abbrevation is required")]
-    [StringLength(20, MinimumLength = 3, ErrorMessage = "Abbrevation can't be longer than 20 characters")]
-    [JsonPropertyName("abbrevation")]
-    public string? Abbrevation { get; set; }
+    [Column("Email", TypeName = "varchar(100)")]
+    [EmailAddress(ErrorMessage = "Invalid Email Address")]
+    [JsonPropertyName("email")]
+    public string? Email { get; set; }
+
+    [Column("PhoneNumber", TypeName = "nvarchar(20)")]
+    [JsonPropertyName("phoneNumber")]
+    [Phone(ErrorMessage = "Invalid Phone Number")]
+    public string? PhoneNumber { get; set; }
 
     [Column("Status", TypeName = "tinyint")]
     [Required(ErrorMessage = "Status is required")]
