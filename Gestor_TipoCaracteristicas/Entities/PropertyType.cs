@@ -5,11 +5,12 @@ using System.Text.Json.Serialization;
 
 namespace Gestor_TipoCaracteristicas.Entities;
 
-[Table("TipoCaracteristica")]
-public class TipoCaracteristica
+[Table("PropertyType")]
+public class PropertyType
 {
     [Key]
-    [Column("Id")]
+    [Column("PropertyTypeId")]
+    [JsonPropertyName("propertyTypeId")]
     public int Id { get; set; }
 
     [Required]

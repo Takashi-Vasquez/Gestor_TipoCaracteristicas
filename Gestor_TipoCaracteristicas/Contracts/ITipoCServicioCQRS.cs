@@ -6,11 +6,11 @@ namespace Gestor_TipoCaracteristicas.Contracts
 {
     public interface ITipoCServicioCQRS
     {
-        Task<TipoCaracteristica> HandleComando(CreateTipoCComando comando);
+        Task<PropertyType> HandleComando(CreateTipoCComando comando);
         Task<bool> HandleComando(EliminarTipoCaracteristicaComando comando);
-        Task<TipoCaracteristica> HandleComando(ModificarTipoCaracteristicaComando comando);
+        Task<PropertyType> HandleComando(ModificarTipoCaracteristicaComando comando);
        
-        Task<TipoCaracteristica> HandleConsulta(GetSingleAsyncQueries consulta);
-        Task<IEnumerable<TipoCaracteristica>> HandleConsulta(GetAllAsyncQueries consulta);
+        Task<PropertyType> HandleConsulta(GetSingleAsyncQueries consulta);
+        Task<IEnumerable<PropertyType>> HandleConsulta(GetAllAsyncQueries consulta);
     }
 }

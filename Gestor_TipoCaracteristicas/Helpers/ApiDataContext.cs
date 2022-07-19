@@ -12,13 +12,13 @@ public class ApiDataContext : DbContext
     public DbSet<Bank>? Banks { get; set; }
     public DbSet<Currency>? Currencies { get; set; }
     public DbSet<Provider>? Providers { get; set; }
-    public DbSet<TipoCaracteristica>? TipoCaracteristicas { get; set; }
-    public DbSet<Marca>? Marca { get; set; }
-    public DbSet<Activo>? Activo { get; set; }
-    public DbSet<TipoActivo>? TipoActivo { get; set; }
-    public DbSet<CaracteristicasActivo>? CaracteristicasActivo { get; set; }
-    public DbSet<CaracteristicasTipoActivo>? CaracteristicasTipoActivo { get; set; }
-    public DbSet<ClaseActivo>? ClaseActivo { get; set; }
+    public DbSet<PropertyType>? PropertyTypes { get; set; } 
+    public DbSet<Brand>? Brands { get; set; } 
+    public DbSet<Asset>? Assets { get; set; }
+    public DbSet<AssetType>? AssetTypes { get; set; }
+    public DbSet<PropertyAsset>? PropertyAssets { get; set; }
+    public DbSet<PropertyAssetType>? PropertyAssetTypes { get; set; }
+    public DbSet<AssetClass>? AssetsClass { get; set; } 
 
     protected override void OnModelCreating(ModelBuilder modelBuilder)
     {

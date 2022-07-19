@@ -14,42 +14,42 @@ namespace Gestor_TipoCaracteristicas.Repositories
             _context = context;
         }
 
-        public async Task<TipoCaracteristica> createAsyc(TipoCaracteristica tipo)
+        public async Task<PropertyType> createAsyc(PropertyType tipo)
         {
-            _context.TipoCaracteristicas.Add(tipo);
+            _context.PropertyTypes.Add(tipo);
             await _context.SaveChangesAsync();
 
-            return await _context.TipoCaracteristicas//.Include(x => x.Modelo)
+            return await _context.PropertyTypes//.Include(x => x.Modelo)
                 .FirstOrDefaultAsync(x => x.Id == tipo.Id); ;
         }
 
-        public async Task<TipoCaracteristica> EditAsync(TipoCaracteristica tipo)
+        public async Task<PropertyType> EditAsync(PropertyType tipo)
         {
-            _context.TipoCaracteristicas.Update(tipo);
+            _context.PropertyTypes.Update(tipo);
             await _context.SaveChangesAsync();
             return tipo;
         }
-        public async Task<bool> RemoveAsync(TipoCaracteristica tipo)
+        public async Task<bool> RemoveAsync(PropertyType tipo)
         {
-            _context.TipoCaracteristicas.Remove(tipo);
+            _context.PropertyTypes.Remove(tipo);
             await _context.SaveChangesAsync();
             return true;
         }
-        public async Task<TipoCaracteristica> GetSingleAsync(string value)
+        public async Task<PropertyType> GetSingleAsync(string value)
         {
             bool isNumeric = int.TryParse(value, out int tipoId);
             if (isNumeric)
-                return await _context.TipoCaracteristicas//.Include(x => x.Modelo)
+                return await _context.PropertyTypes//.Include(x => x.Modelo)
                                                          .FirstOrDefaultAsync(x=>x.Id==tipoId);
             else
-                return await _context.TipoCaracteristicas//.Where(u => u.Equipo.Contains(value))
+                return await _context.PropertyTypes//.Where(u => u.Equipo.Contains(value))
                     .FirstOrDefaultAsync();
 
         }
 
-        public async Task<IEnumerable<TipoCaracteristica>> GetAllAsync()
+        public async Task<IEnumerable<PropertyType>> GetAllAsync()
         {
-            return await _context.TipoCaracteristicas//.Include(x => x.Modelo)
+            return await _context.PropertyTypes//.Include(x => x.Modelo)
                 .ToListAsync();
         }
     }

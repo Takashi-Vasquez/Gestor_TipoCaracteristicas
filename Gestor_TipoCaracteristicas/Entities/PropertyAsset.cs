@@ -5,40 +5,41 @@ using Gestor_TipoCaracteristicas.Entities;
 
 namespace Gestor_TipoCaracteristicas.Entities
 {
-    public class CaracteristicasActivo
+    [Table("PropertyAsset")]
+    public class PropertyAsset
     {
         [Key]
-        [Column("CaracteristicasActivoId")]
-        [JsonPropertyName("caracteristicasActivoId")]
+        [Column("PropertyAssetId")]
+        [JsonPropertyName("propertyAssetId")]
         public int Id { get; set; }
 
-        [ForeignKey(nameof(CaracteristicasTipoActivo))]
-        [JsonPropertyName("caracteristicasTipoActivoId")]
-        public int CaracteristicasTipoActivoId { get; set; }
-        public CaracteristicasTipoActivo? CaracteristicasTipoActivo { get; set; } 
+        [ForeignKey(nameof(PropertyAssetType))]
+        [JsonPropertyName("propertyAssetTypeId")]
+        public int PropertyAssetTypeId { get; set; }
+        public PropertyAssetType? PropertyAssetType { get; set; } 
         
-        [ForeignKey(nameof(Activo))]
-        [JsonPropertyName("ActivoId")]
-        public int ActivoId { get; set; }
-        public Activo? Activo { get; set; }
+        [ForeignKey(nameof(Asset))]
+        [JsonPropertyName("assetId")]
+        public int AssetId { get; set; }
+        public Asset? Asset { get; set; }
 
         [Column("Name", TypeName = "varchar(50)")]
         [Required(ErrorMessage = "Name is required")]
         [StringLength(50, ErrorMessage = "Name can't be longer than 50 characters")]
         [JsonPropertyName("name")]
-        public string Name { get; set; }
+        public string Name { get; set; } = string.Empty;
 
         [Column("Description", TypeName = "varchar(50)")]
         [Required(ErrorMessage = "Description is required")]
         [StringLength(50, ErrorMessage = "Description can't be longer than 50 characters")]
         [JsonPropertyName("description")]
-        public string Description { get; set; }
+        public string Description { get; set; } = string.Empty;
 
         [Column("Comment", TypeName = "varchar(50)")]
         [Required(ErrorMessage = "Comment is required")]
         [StringLength(50, ErrorMessage = "Comment can't be longer than 50 characters")]
         [JsonPropertyName("comment")]
-        public string Comment { get; set; }
+        public string Comment { get; set; } = string.Empty;
 
         [Column("Status", TypeName = "tinyint")]
         [Required(ErrorMessage = "Status is required")]

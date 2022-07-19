@@ -5,23 +5,23 @@ using Gestor_TipoCaracteristicas.Entities;
 
 namespace Gestor_TipoCaracteristicas.Entities
 {
-    [Table("CaracteristicasTipoActivo")]
-    public class CaracteristicasTipoActivo
+    [Table("PropertyAssetType")]
+    public class PropertyAssetType
     {
         [Key]
-        [Column("CaracteristicasTipoActivoId")]
-        [JsonPropertyName("caracteristicasTipoActivoId")]
+        [Column("PropertyAssetTypeId")]
+        [JsonPropertyName("propertyAssetTypeId")]
         public int Id { get; set; }
 
-        [ForeignKey(nameof(TipoCaracteristica))]
-        [JsonPropertyName("tipoCaracteristicaId")]
-        public int TipoCaracteristicaId { get; set; }
-        public TipoCaracteristica? TipoCaracteristica { get; set; }
+        [ForeignKey(nameof(PropertyType))]
+        [JsonPropertyName("propertyTypeId")]
+        public int PropertyTypeId { get; set; }
+        public PropertyType? PropertyType { get; set; }
 
-        [ForeignKey(nameof(TipoActivo))]
-        [JsonPropertyName("tipoActivoId")]
-        public int TipoActivoId { get; set; }
-        public TipoActivo? TipoActivo { get; set; }
+        [ForeignKey(nameof(AssetType))]
+        [JsonPropertyName("assetTypeId")]
+        public int AssetTypeId { get; set; }
+        public AssetType? AssetType { get; set; }
 
         [Column("Status", TypeName = "tinyint")]
         [Required(ErrorMessage = "Status is required")]

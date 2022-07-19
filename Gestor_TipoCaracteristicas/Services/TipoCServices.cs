@@ -12,9 +12,9 @@ namespace Gestor_TipoCaracteristicas.Services
             _tipoRepository = tipoRepository;
         }
 
-        public async Task<TipoCaracteristica> createAsyc(TipoCaracteristica tipo)
+        public async Task<PropertyType> createAsyc(PropertyType tipo)
         {
-            var tipoC = new TipoCaracteristica
+            var tipoC = new PropertyType
             {
                 //Equipo = tipo.Equipo,
                 //Abreviatura = tipo.Abreviatura
@@ -22,7 +22,7 @@ namespace Gestor_TipoCaracteristicas.Services
             return await _tipoRepository.createAsyc(tipoC);
         }
 
-        public async Task<TipoCaracteristica> EditAsync(TipoCaracteristica tipo)
+        public async Task<PropertyType> EditAsync(PropertyType tipo)
         {
             var tipoCUpdate = await _tipoRepository.GetSingleAsync(tipo.Id.ToString());
             //tipoCUpdate.Abreviatura = tipo.Abreviatura;
@@ -37,12 +37,12 @@ namespace Gestor_TipoCaracteristicas.Services
 
         }
 
-        public async Task<TipoCaracteristica> GetSingleAsync(string value)
+        public async Task<PropertyType> GetSingleAsync(string value)
         {
             return await _tipoRepository.GetSingleAsync(value);
         }
 
-        public async Task<IEnumerable<TipoCaracteristica>> GetAllAsync()
+        public async Task<IEnumerable<PropertyType>> GetAllAsync()
         {
             return await _tipoRepository.GetAllAsync(); ;
         }

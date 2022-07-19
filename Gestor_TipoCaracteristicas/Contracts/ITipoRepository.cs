@@ -4,11 +4,11 @@ namespace Gestor_TipoCaracteristicas.Contracts
 {
     public interface ITipoRepository
     {
-        Task<TipoCaracteristica> createAsyc(TipoCaracteristica tipo);
-        Task<TipoCaracteristica> EditAsync(TipoCaracteristica tipo);
-        Task<bool> RemoveAsync(TipoCaracteristica tipo);
-        Task<TipoCaracteristica> GetSingleAsync(string value);
-        Task<IEnumerable<TipoCaracteristica>> GetAllAsync();
+        Task<PropertyType> createAsyc(PropertyType tipo);
+        Task<PropertyType> EditAsync(PropertyType tipo);
+        Task<bool> RemoveAsync(PropertyType tipo);
+        Task<PropertyType> GetSingleAsync(string value);
+        Task<IEnumerable<PropertyType>> GetAllAsync();
 
     }
 }

@@ -13,17 +13,17 @@ internal class TipoCServiceCQRS : ITipoCServicioCQRS
         _tipoRepository = tipoRepository;
     }
 
-    public async Task<TipoCaracteristica> HandleComando(CreateTipoCComando comando)
+    public async Task<PropertyType> HandleComando(CreateTipoCComando comando)
     {
-         var tipoC = new TipoCaracteristica
-            {
+         var tipoC = new PropertyType
+         {
                 //Equipo = comando.Equipo,
                 //Abreviatura = comando.Abreviatura,
                 //ModeloId = comando.ModeloId,
             };
             return await _tipoRepository.createAsyc(tipoC);
     }
-    public async Task<TipoCaracteristica> HandleComando(ModificarTipoCaracteristicaComando comando)
+    public async Task<PropertyType> HandleComando(ModificarTipoCaracteristicaComando comando)
     {
         var tipoCUpdate = await _tipoRepository.GetSingleAsync(comando.Id.ToString());
         //tipoCUpdate.Abreviatura = comando.Abreviatura;
@@ -40,12 +40,12 @@ internal class TipoCServiceCQRS : ITipoCServicioCQRS
     }
 
 
-    public async Task<TipoCaracteristica> HandleConsulta(GetSingleAsyncQueries consulta)
+    public async Task<PropertyType> HandleConsulta(GetSingleAsyncQueries consulta)
     {
         return await _tipoRepository.GetSingleAsync(consulta.value);
     }
 
-    public async Task<IEnumerable<TipoCaracteristica>> HandleConsulta(GetAllAsyncQueries consulta)
+    public async Task<IEnumerable<PropertyType>> HandleConsulta(GetAllAsyncQueries consulta)
     {
         return await _tipoRepository.GetAllAsync();
     }

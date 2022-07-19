@@ -4,22 +4,32 @@ using System.ComponentModel.DataAnnotations.Schema;
 
 using System.Text.Json.Serialization;
 
-
 namespace Gestor_TipoCaracteristicas.Entities
 {
-    [Table("ClaseActivo")]
-    public class ClaseActivo
+    [Table("AssetType")]
+    public class AssetType
     {
         [Key]
-        [Column("ClaseActivoId")]
-        [JsonPropertyName("claseActivoId")]
+        [Column("AssetTypeId")]
+        [JsonPropertyName("assetTypeId")]
         public int Id { get; set; }
 
         [Column("Name", TypeName = "varchar(50)")]
         [Required(ErrorMessage = "Name is required")]
         [StringLength(50, ErrorMessage = "Name can't be longer than 50 characters")]
         [JsonPropertyName("name")]
-        public string Name { get; set; }
+        public string Name { get; set; } = string.Empty;
+
+        [Column("Abbrevation", TypeName = "varchar(20)")]
+        [Required(ErrorMessage = "Abbrevation is required")]
+        [StringLength(20, MinimumLength = 3, ErrorMessage = "Abbrevation can't be longer than 20 characters")]
+        [JsonPropertyName("abbrevation")]
+        public string? Abbrevation { get; set; }
+
+        [ForeignKey(nameof(AssetClass))]
+        [JsonPropertyName("assetClassId")]
+        public int AssetClassId { get; set; }
+        public AssetClass? AssetClass { get; set; }
 
         [Column("Status", TypeName = "tinyint")]
         [Required(ErrorMessage = "Status is required")]

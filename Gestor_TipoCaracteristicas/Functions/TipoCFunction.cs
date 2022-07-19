@@ -27,7 +27,7 @@ public class TipoCFunction
     {
         try
         {
-            var body = await req.ReadFromJsonAsync<TipoCaracteristica>();
+            var body = await req.ReadFromJsonAsync<PropertyType>();
             var data = await _TipoCService.createAsyc(body!);
             var response = req.CreateResponse(System.Net.HttpStatusCode.OK);
             await response.WriteAsJsonAsync(data);
@@ -45,7 +45,7 @@ public class TipoCFunction
     {
         try
         {
-            var body = await req.ReadFromJsonAsync<TipoCaracteristica>();
+            var body = await req.ReadFromJsonAsync<PropertyType>();
             var data = await _TipoCService.EditAsync(body!);
             var response = req.CreateResponse(System.Net.HttpStatusCode.OK);
             await response.WriteAsJsonAsync(data);
